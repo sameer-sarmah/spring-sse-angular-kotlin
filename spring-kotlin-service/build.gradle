@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group 'northwind'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlin:kotlin-reflect"
+    implementation group: 'io.projectreactor',name: 'reactor-core'
+    implementation group: 'io.projectreactor.addons',name: 'reactor-extra'
+    implementation group: 'io.projectreactor.netty',name: 'reactor-netty'
+    implementation group: 'org.springframework.boot',name: 'spring-boot-starter-web'
+    implementation group: 'org.springframework',name:'spring-webflux'
+    implementation "io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE"
+    implementation 'com.fasterxml.jackson.core:jackson-core'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    implementation 'org.javatuples:javatuples:1.2'
+    implementation 'io.projectreactor.ipc:reactor-netty:0.7.10.RELEASE'
+    implementation 'log4j:log4j:1.2.17';
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'io.spring.platform:platform-bom:2.0.8.RELEASE'
+    }
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-starter-parent:2.2.0.RELEASE"
+    }
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}

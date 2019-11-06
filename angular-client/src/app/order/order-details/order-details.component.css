@@ -1,0 +1,26 @@
+.overview-panel{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.order-details-container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.product-table-panel{
+    width: 80%;
+}
+
+app-address-tile{
+    width: 40%;
+}
+
+app-overview-tile{
+    width: 45%;
+}

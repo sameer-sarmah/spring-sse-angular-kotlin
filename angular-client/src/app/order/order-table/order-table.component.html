@@ -1,0 +1,20 @@
+
+<div class="order-table-container">
+    <div class="order-table">
+        <div class="order-table-header">
+            <div class="width25pc order-table-header-cell">Order ID</div>
+            <div class="width25pc order-table-header-cell">Customer</div>
+            <div class="width25pc order-table-header-cell">Order Date</div>
+            <div class="width25pc order-table-header-cell">Shipped Date</div>
+        </div>
+        <div class="order-table-body">
+            <div *ngFor="let orderItem of orders" class="order-table-row" (click)="navigateToOrderDetails(orderItem)">
+                <div class="width25pc order-table-column">{{orderItem.id}}</div>
+                <div class="width25pc order-table-column">{{orderItem.customer.firstName}}
+                    {{orderItem.customer.lastName}}</div>
+                <div class="width25pc order-table-column">{{orderItem.orderDate}}</div>
+                <div class="width25pc order-table-column">{{orderItem.shippedDate}}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="overview-tile" *ngIf="!!order">
+        <div class="overview-tile-group-container">
+            <div class="overview-tile-label">Customer:</div>
+            <div class="overview-tile-content">{{overviewData.customerName}}</div>
+        </div>
+
+        <div class="overview-tile-group-container">
+            <div class="overview-tile-label">Shipped Date:</div>
+            <div class="overview-tile-content">{{overviewData.shippedDate}}</div>
+        </div>
+
+        <div class="overview-tile-group-container">
+            <div class="overview-tile-label">Order Date:</div>
+            <div class="overview-tile-content">{{overviewData.orderDate}}</div>
+        </div>
+
+
+        <div class="overview-tile-group-container">
+            <div class="overview-tile-label">Shipping Fee:</div>
+            <div class="overview-tile-content">{{overviewData.shippingFee}}</div>
+        </div>
+</div>

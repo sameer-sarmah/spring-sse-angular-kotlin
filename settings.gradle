@@ -1,0 +1,4 @@
+rootProject.name = 'spring-sse-angular-kotlin'
+include 'angular-client'
+include 'spring-kotlin-service'
+

@@ -1,0 +1,38 @@
+.overview-tile{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 14px;
+    grid-column-gap: 20px; 
+    grid-row-gap: 20px; 
+    height: 200px;
+    margin-top: 10px;
+    background-color: #FAFAFA;
+    box-shadow: 5px 5px 5px grey;
+
+}
+
+.overview-tile-group-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;  
+    width: 100%;
+}
+
+.overview-tile-label{
+    color: gray;
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-style: italic;
+    justify-content: center;
+}
+
+.overview-tile-content{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-style: italic;
+    justify-content: center;
+}

@@ -1,0 +1,26 @@
+<div class="address-tile" *ngIf="!!order === true && !!address === true else emptyDiv">
+        <div class="address-tile-group-container">
+            <div class="address-tile-label">Address:</div>
+            <div class="address-tile-content">{{address.address}}</div>
+        </div>
+
+        <div class="address-tile-group-container">
+            <div class="address-tile-label">City:</div>
+            <div class="address-tile-content">{{address.city}}</div>
+        </div>
+
+        <div class="address-tile-group-container">
+            <div class="address-tile-label">Zip:</div>
+            <div class="address-tile-content">{{address.zip}}</div>
+        </div>
+
+
+        <div class="address-tile-group-container">
+            <div class="address-tile-label">Country:</div>
+            <div class="address-tile-content">{{address.country}}</div>
+        </div>
+</div>
+
+<ng-template #emptyDiv>
+        <div class="address-tile"></div>
+</ng-template>

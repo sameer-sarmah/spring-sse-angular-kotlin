@@ -1,0 +1,19 @@
+
+<div class="product-table-container">
+        <div class="product-table">
+            <div class="product-table-header">
+                <div class="width25pc product-table-header-cell">Product ID</div>
+                <div class="width25pc product-table-header-cell">Name</div>
+                <div class="width25pc product-table-header-cell">Unit Price</div>
+                <div class="width25pc product-table-header-cell">Quantity</div>
+            </div>
+            <div class="product-table-body">
+                <div *ngFor="let productItem of products" class="product-table-row">
+                    <div class="width25pc product-table-column">{{productItem.id}}</div>
+                    <div class="width25pc product-table-column">{{productItem.name}}</div>
+                    <div class="width25pc product-table-column">{{productItem.unitPrice}}</div>
+                    <div class="width25pc product-table-column">{{productItem.quantity}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
