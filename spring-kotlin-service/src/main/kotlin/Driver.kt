@@ -36,48 +36,48 @@ import reactor.util.function.Tuple2
         val zonedDateTime = LocalDateTime.parse(dateStr, formatter)
         System.out.println(zonedDateTime)
 
-//        val productService = ctx.getBean(IProductService::class.java)
-//        val productMono = productService.getProduct(1)
-//
-//        val customerService = ctx.getBean(ICustomerService::class.java)
-//        val customerMono = customerService.getCustomer("ALFKI")
-//
-//        val orderItemsSvc = ctx.getBean(IOrderItemService::class.java)
-//        val oiMono = orderItemsSvc.getOrderItems(10248)
-//
-//        val tuple = Mono.zip(productMono, customerMono)
-//        tuple.subscribe({ t ->
-//            val product = t.getT1()
-//            val customer = t.getT2()
-//            System.out.println("Customer first name " + customer.firstName)
-//            System.out.println("Product name " + product.name)
-//        })
-//
-//        oiMono.subscribe({ orderItems ->
-//            for (item in orderItems) {
-//                System.out.println(item.product?.name)
-//            }
-//        })
-//
-//        val orderService = ctx.getBean(IOrderService::class.java)
-//        val orderMono = orderService.getOrder(10248)
-//        orderMono.subscribe({ order ->
-//            val orderItems = order.orderItems
-//            orderItems?.forEach({
-//                System.out.println(it.product?.name)
-//            })
-//        })
-//        val orderIdsMono = orderService.orderIds
-//        orderIdsMono.subscribe({ orderIds ->
-//            Flux.fromIterable(orderIds)
-//                .take(5)
-//                .delayElements(Duration.ofSeconds(5))
-//                .flatMap({ orderId -> orderService.getOrder(orderId) })
-//                .subscribe({ order ->
-//                    System.out.println(order)
-//
-//                })
-//        })
+        val productService = ctx.getBean(IProductService::class.java)
+        val productMono = productService.getProduct(1)
+
+        val customerService = ctx.getBean(ICustomerService::class.java)
+        val customerMono = customerService.getCustomer("ALFKI")
+
+        val orderItemsSvc = ctx.getBean(IOrderItemService::class.java)
+        val oiMono = orderItemsSvc.getOrderItems(10248)
+
+        val tuple = Mono.zip(productMono, customerMono)
+        tuple.subscribe({ t ->
+            val product = t.getT1()
+            val customer = t.getT2()
+            System.out.println("Customer first name " + customer.firstName)
+            System.out.println("Product name " + product.name)
+        })
+
+        oiMono.subscribe({ orderItems ->
+            for (item in orderItems) {
+                System.out.println(item.product?.name)
+            }
+        })
+
+        val orderService = ctx.getBean(IOrderService::class.java)
+        val orderMono = orderService.getOrder(10248)
+        orderMono.subscribe({ order ->
+            val orderItems = order.orderItems
+            orderItems?.forEach({
+                System.out.println(it.product?.name)
+            })
+        })
+        val orderIdsMono = orderService.orderIds
+        orderIdsMono.subscribe({ orderIds ->
+            Flux.fromIterable(orderIds)
+                .take(5)
+                .delayElements(Duration.ofSeconds(5))
+                .flatMap({ orderId -> orderService.getOrder(orderId) })
+                .subscribe({ order ->
+                    System.out.println(order)
+
+                })
+        })
 
         val sseClient = ctx.getBean(ReactiveSSEClient::class.java)
         val orderStream = sseClient.serverSentOrders()
